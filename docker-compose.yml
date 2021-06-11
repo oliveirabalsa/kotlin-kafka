@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  kafka-poc:
+    container_name: "kotlin-kafka"
+    image: postgres:12-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: kotlin
+      POSTGRES_USER: kotlin
+      POSTGRES_DB: kotlin-kafka
