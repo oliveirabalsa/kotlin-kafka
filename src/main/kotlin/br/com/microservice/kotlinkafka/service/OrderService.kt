@@ -7,10 +7,14 @@ import org.springframework.stereotype.Service
 
 @Service
 class OrderService constructor(
-    private val orderRepository: OrderRepository
+    private val orderRepository: OrderRepository,
+    private val producerService: ProducerService
 ) {
     fun all(): List<Order> {
-        return orderRepository.findAll()
+        val orders = orderRepository.findAll()
+        producerService.produce(orders)
+        return orders
+
     }
 
     fun one(id: Long): Order {
