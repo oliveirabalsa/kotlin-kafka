@@ -14,7 +14,6 @@ class OrderService constructor(
         val orders = orderRepository.findAll()
         producerService.produce(orders)
         return orders
-
     }
 
     fun one(id: Long): Order {
